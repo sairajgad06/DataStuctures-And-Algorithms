@@ -34,7 +34,7 @@
 // Follow-up: If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?
 
 
-
+//78 % approach 2
 class Solution {
     public String reverseWords(String s) {
         String[] words = s.split(" +");
@@ -46,6 +46,30 @@ class Solution {
         return sb.toString().trim();
     }
 }
+
+ //approach 1 51%
+
+        String result = new String();
+        int i=0;
+        int n=s.length();
+        while(i<n){
+            while(i<n && s.charAt(i)==' '){
+                i++;
+            }
+            if(i>=n){break;}
+            int j=i+1;
+            while(j<n && s.charAt(j)!=' '){
+                j++;
+            }
+
+            String sub=s.substring(i,j);
+            if(result.length()==0){result = sub;}
+            else{result = sub + ' ' + result;}
+            i = j+1;
+
+        }
+
+        return result;
 
 
 
